@@ -10,6 +10,7 @@ vendiGildi = function(n){
   return(rnorm(n,mean = medalgildi, sd = stadalfravik))
 }
 
+#tekur vid vigri af tolum og skilar metli vigursins
 reiknaMetilUrGildurm = function(gildi){
   medalgildiItrun = mean(gildi)
   result = 0
@@ -22,7 +23,8 @@ reiknaMetilUrGildurm = function(gildi){
 
 }
 
-#skilar metil1
+#tekur vid tolu n og skilar metili1 af n morgum venditolum
+#med medalgildi 96 og stadalfraviki 13
 metill1 = function(n){
   itrun = vendiGildi(n)
   medalgildiItrun = mean(itrun)
@@ -36,14 +38,16 @@ metill1 = function(n){
   return(result)
 }
 
-#skilar metil2
+#tekur vid tolu n og skilar metili2 af n morgum venditolum
+#med medalgildi 96 og stadalfraviki 13
 metill2 = function(n){
   return( IQR( vendiGildi( n ) ) / 1.349 )
 }
 
-#skilar vigri med jafn morgum gildum i eru i gildiN.
-#hvert stak i vigrinum er med fjoldiItrana gildum af
-#metill1.
+#skilar vigri med jafn morgum gildum og eru i gildiN.
+#hvert stak i vigrinum inniheldur annad hvort dreifni
+#metla1 eda bjogun theirra. Thad raedst af thvi hvort
+#dreifni er FALSE eda TRUE
 itraAllaMetlla1 = function (fjoldiItrana, dreifni){
   allirMetlar = c()
 
@@ -68,9 +72,10 @@ itraAllaMetlla1 = function (fjoldiItrana, dreifni){
   return(allirMetlar)
 }
 
-#skilar vigri med jafn morgum gildum i eru i gildiN.
-#hvert stak i vigrinum er med fjoldiItrana gildum af
-#metill2.
+#skilar vigri med jafn morgum gildum og eru i gildiN.
+#hvert stak i vigrinum inniheldur annad hvort dreifni
+#metla2 eda bjogun theirra. Thad raedst af thvi hvort
+#dreifni er FALSE eda TRUE
 itraAllaMetlla2 = function(fjoldiItrana, dreifni){
     allirMetlar = c()
 
@@ -93,6 +98,7 @@ itraAllaMetlla2 = function(fjoldiItrana, dreifni){
     return(allirMetlar)
 }
 
+#skilar TRUE ef oryggisbilid inniheldur retta gildid
 Oryggisbil = function(){
 
   x = vendiGildi(23)
